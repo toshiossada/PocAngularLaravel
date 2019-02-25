@@ -1,0 +1,37 @@
+<header>
+  <nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand">
+      <h1>
+        {{title}}
+      </h1>
+    </span>
+  </nav>
+</header>
+<main class="container-fluid" id="content">
+  <div class="row">
+    <section id="nav" class="col-2 bg-dark">
+      <p class="display-6 text-light">
+        <small>
+          Menu
+        </small>
+      </p>
+      <p *ngIf="isLogged">
+        <a [routerLink]="['/products']" routerLinkActive="router-link-active"  class="btn btn-secondary">Produtos</a>
+      </p>
+      <p *ngIf="isLogged">
+        <a [routerLink]="['/users']" class="btn btn-secondary">Usuarios</a>
+      </p>
+      <p *ngIf="!isLogged">
+        <a href="#" (click)="login($event)" class="btn btn-secondary">Login</a>
+      </p>
+      <p *ngIf="isLogged">
+        <a href="#" (click)="logout($event)" class="btn btn-secondary">Logout</a>
+      </p>      
+    </section>
+
+    <section id="renderer" class="col-10">
+      <router-outlet></router-outlet>
+    
+    </section>
+  </div>
+</main>

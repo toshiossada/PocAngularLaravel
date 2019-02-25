@@ -1,0 +1,11 @@
+<div class="input-group">
+  <div class="input-group-prepend">
+    <div class="input-group-text">@</div>
+  </div>
+  <input 
+      #searchLaravel 
+      type="search" 
+      class="form-control" 
+      placeholder="Buscar..." 
+      (keyup)="search(searchLaravel.value)">
+</div>

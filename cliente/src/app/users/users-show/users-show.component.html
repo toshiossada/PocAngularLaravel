@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{user.name}}</h5>
+    <ul class="list-group">
+      <li class="list-group-item">{{user.id}}</li>
+      <li class="list-group-item">{{user.email}}</li>
+      <li class="list-group-item">{{user.created_at}}</li>
+      <li class="list-group-item">{{user.updated_at}}</li>
+    </ul>
+    <hr>
+
+    <div class="btn-group">
+      <a [routerLink]="['/users/' + user.id + '/edit']" class="btn btn-primary">editar</a>
+      <a [routerLink]="" (click)="delete(user.id)" class="btn btn-danger">remover</a>
+      <a [routerLink]="['/users']" class="btn btn-secondary">voltar</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col"><h5 class="card-title">Usuarios</h5></div>
+      <div class="col-4 mb-1">
+        <app-search [resource]="'users'" (onSearch)="updateData($event)"></app-search>
+      </div>
+    </div>
+    
+    <table class="table table-hover table-bordered">
+      <caption>Lista de Usuarios</caption>
+      <thead class="thead-dark">
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users.data">
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td class="text-right">
+            <a [routerLink]="['/users/' + user.id]">ver</a>
+          </td>
+        </tr>
+      </tbody>    
+    </table>
+    <!-- Paginação -->
+    <div>
+      <app-paginate
+          [resource]="'users'"
+          [totalPage]="users.last_page" 
+          (onChangePage)="updateData($event)"
+          [activePage]="users.current_page"></app-paginate>
+    </div>
+    <a [routerLink]="['/users/create']"  class="btn btn-primary">Novo</a>
+
+  </div>
+</div>
